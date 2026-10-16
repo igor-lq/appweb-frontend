@@ -1,0 +1,59 @@
+.ajuda-icone {
+  position: relative;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-neutral-400);
+  cursor: pointer;
+}
+.ajuda-icone:hover,
+.ajuda-icone:focus-visible {
+  color: var(--color-accent-700);
+  background: var(--color-neutral-200);
+}
+
+/* Dica flutuante — renderizada via portal em document.body (ver AjudaIcone.tsx), posicionada em
+   coordenadas de viewport calculadas na hora do hover. `position:fixed` fora da árvore escapa de
+   qualquer ancestral com overflow:auto (biblioteca) ou transform:scale (canvas com zoom) — os
+   dois cortariam/deslocariam uma dica posicionada como filha normal do ícone. */
+.ajuda-icone-dica {
+  position: fixed;
+  transform: translateY(-100%);
+  width: max-content;
+  max-width: 240px;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  background: var(--color-neutral-900);
+  color: #fff;
+  font-size: 11.5px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  box-shadow: var(--shadow-lg);
+  z-index: 500;
+  pointer-events: none;
+  animation: ajuda-icone-dica-entrada 0.12s ease;
+}
+
+@keyframes ajuda-icone-dica-entrada {
+  from {
+    opacity: 0;
+    transform: translateY(-96%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-100%);
+  }
+}
+
+.ajuda-icone-texto {
+  font-size: 13.5px;
+  line-height: 1.65;
+}

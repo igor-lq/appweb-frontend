@@ -1,0 +1,16 @@
+.confirm-delete {
+  width: 28px;
+  height: 28px;
+  color: var(--color-neutral-600);
+  border-color: var(--color-divider);
+}
+.confirm-delete:hover {
+  color: var(--color-danger-text);
+  border-color: var(--color-danger-border);
+  background: color-mix(in srgb, var(--color-danger-border) 10%, transparent);
+}
+.confirm-delete--armed {
+  color: var(--color-danger-text);
+  border-color: var(--color-danger-border);
+  background: color-mix(in srgb, var(--color-danger-border) 14%, transparent);
+}

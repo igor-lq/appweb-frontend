@@ -1,0 +1,85 @@
+.cliente-shell {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+}
+
+/* Quando o menu principal também está colapsado, o rail do cliente sai da própria coluna
+   (que abriria uma 2ª faixa ao lado) e empilha embaixo do rail principal, na mesma borda
+   esquerda — "um embaixo do outro" em vez de lado a lado. */
+.app-shell:has(> .sidebar-rail) .cliente-shell > .sidebar-rail {
+  position: fixed;
+  left: 0;
+  top: calc(50% + 40px);
+  z-index: 20;
+}
+
+.cliente-shell-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.cliente-sidebar {
+  width: var(--width-client-sidebar);
+  flex: none;
+  min-height: 0;
+  border-right: 1px solid var(--color-divider);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  background: var(--color-neutral-100);
+}
+
+.cliente-sidebar-header {
+  padding: 0 18px 18px;
+}
+
+.cliente-sidebar-name {
+  font-family: var(--font-heading);
+  font-size: 21px;
+  line-height: 1.15;
+  margin-top: 4px;
+}
+
+.cliente-sidebar-nav {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0 10px;
+}
+
+.cliente-sidebar-nav .sidebar-item {
+  font-size: 13.5px;
+  line-height: 1.25;
+}
+
+.sidebar-item-badge {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-danger-text);
+  margin-left: 6px;
+  vertical-align: middle;
+  flex: none;
+}
+
+.cliente-sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 18px 4px;
+  padding: 8px 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-neutral-600);
+  font-family: var(--font-body);
+  font-size: 13px;
+  cursor: pointer;
+}

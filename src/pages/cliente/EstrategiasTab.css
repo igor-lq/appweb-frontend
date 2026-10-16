@@ -1,0 +1,109 @@
+.estrategias-page {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.estrategias-header {
+  padding: 22px 28px 18px;
+  border-bottom: 1px solid var(--color-divider);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.estrategias-title {
+  font-family: var(--font-heading);
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.estrategias-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.estrategias-body {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.estrategias-list {
+  flex: 1;
+  min-width: 300px;
+  overflow: auto;
+  padding: 20px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.estrategias-search {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--color-bg);
+  margin-bottom: 2px;
+}
+
+.estrategias-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 18px;
+  cursor: pointer;
+}
+.estrategias-item:hover { border-color: var(--color-accent); }
+
+.estrategias-item-nome {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.estrategias-item-meta {
+  font-size: 12.5px;
+}
+
+.estrategias-detalhes {
+  flex: 0 1 330px;
+  min-width: 250px;
+  overflow: auto;
+  border-left: 1px solid var(--color-divider);
+  background: var(--color-neutral-100);
+  padding: 20px 20px 24px;
+}
+
+.estrategias-detalhes-nome {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.estrategias-detalhes-campos {
+  margin-top: 18px;
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+.estrategias-campo {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--color-divider);
+  font-size: 12px;
+}
+.estrategias-campo:last-child { border-bottom: 0; }

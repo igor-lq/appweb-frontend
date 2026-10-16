@@ -1,0 +1,35 @@
+/* Tema mínimo do Prism.js pra combinar com o design system (variáveis --color-* já existentes)
+   — evita importar um tema pronto inteiro do prismjs/themes só pra sobrescrever tudo depois. */
+.token.keyword,
+.token.operator {
+  color: var(--color-accent-700);
+  font-weight: 600;
+}
+.token.string {
+  color: var(--color-warning-icon);
+}
+.token.number,
+.token.boolean {
+  color: var(--color-danger-text);
+}
+.token.function {
+  color: var(--color-accent-800);
+}
+.token.comment {
+  color: var(--color-neutral-600);
+  font-style: italic;
+}
+.token.punctuation {
+  color: var(--color-neutral-600);
+}
+
+.sql-editor-container {
+  min-height: 320px;
+  overflow: auto;
+}
+.sql-editor-container textarea,
+.sql-editor-container pre {
+  font-family: var(--font-mono) !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+}

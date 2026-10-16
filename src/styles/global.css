@@ -1,0 +1,274 @@
+@import "./tokens.css";
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.55;
+  font-weight: 400;
+  letter-spacing: -0.002em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  margin: 0 0 var(--space-2);
+}
+h2 { font-size: 32px; }
+h6 {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+a {
+  color: var(--color-accent-700);
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--color-accent-900); }
+
+:focus { outline: none; }
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+::selection { background: color-mix(in srgb, var(--color-accent) 30%, transparent); }
+
+.text-muted { color: color-mix(in srgb, var(--color-text) 55%, transparent); }
+
+.kicker {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-neutral-600);
+}
+
+.scroll::-webkit-scrollbar { width: 8px; height: 8px; }
+.scroll::-webkit-scrollbar-thumb { background: var(--color-neutral-300); border-radius: 999px; }
+
+/* — buttons — */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.2;
+  color: var(--color-text);
+  background: transparent;
+  border: 1px solid var(--color-divider);
+  padding: var(--space-2) calc(var(--space-3) * 1.2);
+  border-radius: var(--radius-sm);
+}
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn-primary { background: var(--color-accent); color: #fff; border-color: var(--color-accent); }
+.btn-primary:hover { background: var(--color-accent-600); }
+.btn-primary:active { background: var(--color-accent-700); }
+.btn-secondary { border-color: var(--color-divider); }
+.btn-secondary:hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); }
+.btn-ghost { color: var(--color-accent-700); border-color: transparent; padding-inline: var(--space-2); }
+.btn-ghost:hover { background: color-mix(in srgb, var(--color-accent) 10%, transparent); }
+.btn-icon { width: 36px; height: 36px; padding: 0; }
+.btn-block { width: 100%; }
+.btn-danger {
+  background: transparent;
+  border-color: var(--color-danger-border);
+  color: var(--color-danger-text);
+}
+.btn-danger:hover { background: color-mix(in srgb, var(--color-danger-border) 12%, transparent); }
+/* Confirmação de uma ação destrutiva já em andamento (ex.: "Cancelar" -> "Confirmar" no popup de
+   log de execução) — preenchido, ao contrário de `.btn-danger` (fundo claro, padrão pra abrir a
+   intenção de excluir/cancelar). */
+.btn-danger-solid { background: var(--color-danger-border); color: #fff; border-color: var(--color-danger-border); }
+.btn-danger-solid:hover { background: var(--color-danger-text); }
+
+/* — shell com abas internas (submenu abaixo do título — Modelo Semântico, Versionamento) —
+   padrão fixado 2026-08-28, usar em qualquer tela que precise dividir o conteúdo por abas
+   dentro da própria página (diferente das abas do cliente, que ficam no sidebar). */
+.tab-shell-page {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.tab-shell-header {
+  padding: 22px 28px 0;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+/* Linha de topo do header com ações à direita (ex.: Tasks) — kicker/título continuam empilhados
+   à esquerda, subnav continua abaixo como sempre. */
+.tab-shell-header-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.tab-shell-subnav {
+  display: flex;
+  gap: 4px;
+  margin-top: 16px;
+}
+
+.tab-shell-sublink {
+  padding: 9px 4px 11px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--color-neutral-600);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  margin-right: 18px;
+  cursor: pointer;
+  background: transparent;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+}
+.tab-shell-sublink:hover { color: var(--color-accent-700); }
+.tab-shell-sublink--ativo {
+  color: var(--color-accent-800);
+  border-bottom-color: var(--color-accent);
+  font-weight: 600;
+}
+
+.tab-shell-content {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+/* — ações de painel de detalhes (Editar/Excluir/Testar etc.) — padrão fixado 2026-08-28:
+   painel ESTREITO (Conexões e a maioria das telas): ação principal cheia em cima (opcional) +
+   as demais dividindo uma linha abaixo (.detail-actions-row, filhos flex:1).
+   painel LARGO (Consultas, Medidas): uma linha só, largura natural, alinhada à direita
+   (.detail-actions-row.detail-actions-row--end). */
+.detail-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+.detail-actions-row {
+  display: flex;
+  gap: 8px;
+}
+.detail-actions-row .btn { flex: 1; }
+.detail-actions-row--end {
+  justify-content: flex-end;
+}
+.detail-actions-row--end .btn { flex: none; }
+
+/* — forms — */
+.field > label {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 5px;
+  color: color-mix(in srgb, var(--color-text) 70%, transparent);
+}
+.input {
+  width: 100%;
+  min-height: 36px;
+  padding: 6px 10px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--color-text);
+  caret-color: var(--color-accent);
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-sm);
+}
+.input:hover { border-color: color-mix(in srgb, var(--color-text) 45%, transparent); }
+.input:focus-visible { border-color: var(--color-accent); outline-offset: 0; }
+
+/* Textarea de código (SQL, DAX etc.) — mesma fonte técnica, mais espaço vertical, redimensionável. */
+.code-textarea {
+  min-height: 320px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+/* Bloco de exibição de código (somente leitura) — painel de detalhes de Consultas, Medidas etc. */
+.code-block {
+  min-height: 140px;
+  max-height: 360px;
+  overflow: auto;
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  padding: 12px 14px;
+}
+.code-block pre {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* — cards / bloco em relevo — */
+.card {
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Estado "selecionado" em cards de lista (Clientes, Conexões, etc.): borda azul + elevação.
+   A sombra azul escura do lado esquerdo é exclusiva de menu (.sidebar-item--active), não de
+   lista. Usar esta classe em vez de recriar o destaque com estilo inline em cada tela. */
+.is-selected {
+  border-color: var(--color-accent) !important;
+  /* box-shadow: inset 3px 0 0 var(--color-accent-800), var(--shadow-md); -- friso lateral é só de menu, não de lista */
+  box-shadow: var(--shadow-md);
+}
+/* Título de seção dentro de um card ("Informações", "Zona de risco" etc.) — sempre negrito,
+   padrão do projeto pra qualquer card novo, não só os existentes. */
+.card-kicker {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
+}
+
+/* Texto de feedback breve depois de uma ação simulada (Ativar pacote, Testar conexão, Criar/
+   Reprocessar View etc.) — some sozinho depois de alguns segundos, sem virar toast. */
+.acao-feedback {
+  font-size: 12.5px;
+  color: var(--color-accent-700);
+  text-align: center;
+}
+
+/* — tags — badge cheio, cantos totalmente arredondados: nunca deve parecer clicável,
+   pra ficar claramente distinto de .btn (caixa com radius-sm, sempre com borda/preenchimento). */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex: none;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  border: none;
+}
+.tag svg { flex: none; }

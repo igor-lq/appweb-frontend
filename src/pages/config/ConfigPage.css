@@ -1,0 +1,82 @@
+.config-body {
+  flex: 1;
+  overflow: auto;
+  padding: 28px 40px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.config-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.config-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.config-item {
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.config-item-topo {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.config-item-nome {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.config-item-meta {
+  font-size: 12.5px;
+}
+
+.config-item-bancos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.config-banco-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-divider);
+  background: var(--color-neutral-100);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.config-banco-add-btn {
+  font-size: 12.5px;
+  padding: 4px 10px;
+  min-height: 0;
+}
+
+.config-banco-add {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.config-banco-add .input {
+  min-height: 30px;
+  width: 200px;
+  font-size: 12.5px;
+}

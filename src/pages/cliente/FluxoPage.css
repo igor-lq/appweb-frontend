@@ -1,0 +1,513 @@
+.fluxo-page {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.fluxo-header {
+  padding: 16px 28px;
+  border-bottom: 1px solid var(--color-divider);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.fluxo-voltar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: transparent;
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-sm);
+  font-size: 12.5px;
+  color: var(--color-neutral-600);
+  cursor: pointer;
+  flex: none;
+}
+.fluxo-voltar:hover { border-color: var(--color-accent); color: var(--color-accent-700); }
+
+.fluxo-header-titulo {
+  flex: 1;
+  min-width: 0;
+  max-width: 420px;
+}
+
+.fluxo-nome-input {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.fluxo-header-acoes-coluna {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  flex: none;
+  margin-left: auto;
+}
+
+.fluxo-header-acoes {
+  display: flex;
+  gap: 8px;
+}
+
+.fluxo-salvo-as {
+  font-size: 12px;
+  color: var(--color-neutral-600);
+}
+
+/* Contador de problemas no botão "Salvar" — só aparece quando a validação (clique em Salvar)
+   encontrou algum achado; some assim que corrigido. */
+.fluxo-salvar-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  margin-left: 6px;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--color-danger-text);
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+.fluxo-body {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+/* Coluna que agrupa a busca (fora da área que rola) + o painel de grupos (que rola por baixo) —
+   só existe pra dar a largura/alinhamento comum aos dois, sem padding/margem própria. Assim a
+   busca não depende mais de position:sticky nem de cancelar padding/gap do painel: ela
+   simplesmente não faz parte da área com overflow, então não tem como conteúdo passar por trás
+   dela. */
+.fluxo-biblioteca-coluna {
+  width: 420px;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  border-right: 1px solid var(--color-divider);
+}
+
+.fluxo-busca-bloco {
+  flex: none;
+  padding: 16px 14px 12px;
+  background: var(--color-neutral-100);
+  box-shadow: 0 6px 6px -6px color-mix(in srgb, black 12%, transparent);
+}
+
+.fluxo-biblioteca {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  background: var(--color-neutral-100);
+  padding: 0 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fluxo-grupo {
+  padding: 10px 12px 12px;
+}
+
+.fluxo-grupo-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 4px 2px;
+  background: transparent;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  text-align: left;
+  color: var(--color-text);
+}
+
+.fluxo-grupo-titulo {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-accent-700);
+}
+
+.fluxo-grupo-count {
+  margin-left: auto;
+  font-size: 12px;
+}
+
+.fluxo-grupo-itens {
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.fluxo-componente {
+  position: relative;
+  padding: 8px 10px;
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  box-shadow: var(--shadow-sm);
+  min-width: 0;
+  cursor: grab;
+}
+.fluxo-componente:hover { border-color: var(--color-accent); }
+.fluxo-componente:active { cursor: grabbing; }
+
+/* Ícone "?" (componente AjudaIcone) — hover mostra dica flutuante custom, clique abre popup com
+   o texto completo (copiável). Presente só nos tipos genéricos (nunca nos itens "dado real" de
+   Conexão/Estratégia/Consulta). Duas classes combinadas na mesma regra pra ganhar de
+   `.ajuda-icone` (definida em AjudaIcone.css) e sobrepor `position:relative` com `absolute` —
+   especificidade não pode depender da ordem de import dos dois arquivos CSS. */
+.ajuda-icone.fluxo-componente-ajuda {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.fluxo-componente-nome {
+  padding-right: 14px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fluxo-componente-desc {
+  font-size: 11px;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fluxo-vazio {
+  grid-column: 1 / -1;
+  font-size: 12px;
+  padding: 2px 2px 4px;
+}
+
+.fluxo-canvas-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+}
+
+.fluxo-canvas-toolbar {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 20;
+  display: flex;
+  gap: 8px;
+}
+.fluxo-canvas-toolbar .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+}
+
+.fluxo-canvas {
+  flex: 1;
+  min-width: 0;
+  overflow: auto;
+  background-color: var(--color-bg);
+  cursor: default;
+}
+.fluxo-canvas--arrastando { cursor: grabbing; }
+
+.fluxo-canvas-content {
+  position: relative;
+}
+
+.fluxo-canvas-zoom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  background-color: var(--color-bg);
+}
+
+.fluxo-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.fluxo-linha {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 2;
+}
+.fluxo-linha-hit {
+  fill: none;
+  stroke: transparent;
+  stroke-width: 14;
+  pointer-events: stroke;
+  cursor: pointer;
+}
+.fluxo-linha-grupo:hover .fluxo-linha {
+  stroke: var(--color-danger-text, #dc2626);
+  stroke-width: 3;
+}
+.fluxo-linha--temp {
+  stroke: #2563eb;
+  stroke-width: 2.5;
+  stroke-dasharray: 6 5;
+}
+
+.fluxo-canvas-vazio {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 28px 32px;
+  width: min(420px, 80%);
+  border: 1px dashed var(--color-divider);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--color-bg) 88%, transparent);
+}
+
+.fluxo-canvas-vazio-titulo {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.fluxo-canvas-vazio-texto {
+  max-width: 360px;
+  text-align: center;
+  line-height: 1.6;
+  font-size: 13px;
+}
+
+.fluxo-no {
+  position: absolute;
+  background: var(--color-bg);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  padding: 10px 14px 12px;
+  cursor: grab;
+  user-select: none;
+}
+.fluxo-no:active { cursor: grabbing; box-shadow: var(--shadow-lg); border-color: var(--color-accent); }
+
+.fluxo-no-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-accent-700);
+}
+.fluxo-no-header > svg { flex: none; }
+
+.fluxo-no-grupo {
+  flex: 1;
+  min-width: 0;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fluxo-no-nome-linha {
+  margin-top: 6px;
+}
+
+.fluxo-no-nome {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fluxo-no-acao {
+  position: relative;
+  flex: none;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-neutral-500);
+  cursor: pointer;
+}
+.fluxo-no-acao:hover { background: var(--color-neutral-200); color: var(--color-text); }
+.fluxo-no-acao--excluir:hover { background: color-mix(in srgb, var(--color-danger-border) 16%, transparent); color: var(--color-danger-text); }
+.fluxo-no-acao--engrenagem:hover { color: var(--color-accent-700); }
+
+/* Ponto de obrigatoriedade da engrenagem — mecanismo PRÓPRIO, independente do ponto vermelho de
+   porta: só reflete os campos obrigatórios DAQUELA engrenagem (ver princípio 6 do documento de
+   nós). Posicionado no canto do próprio botão, nunca desloca o ícone. */
+.fluxo-no-engrenagem-dot {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-danger-text);
+  border: 1px solid var(--color-bg);
+}
+
+.fluxo-no-alerta {
+  flex: none;
+  display: flex;
+  align-items: center;
+  color: var(--color-danger-text);
+}
+
+/* Linha de ação do "nó de função simples" (Seletor de Abas, Filtros API — princípio 4): sem
+   engrenagem, clicar aqui abre o popup dedicado direto. */
+.fluxo-no-acao-simples {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  margin-top: 8px;
+  padding: 5px 8px;
+  border: 1px dashed var(--color-divider);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-accent-700);
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.fluxo-no-acao-simples:hover {
+  border-color: var(--color-accent);
+  background: color-mix(in srgb, var(--color-accent) 8%, transparent);
+}
+.fluxo-no-acao-simples span {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fluxo-no-portas {
+  position: relative;
+  margin: 10px -14px 0;
+}
+
+/* left:0;right:0 faz CADA linha (entrada ou saída) ocupar a largura inteira do nó, não só o
+   lado onde o ícone visível fica — é assim que a saída, sempre centralizada no meio de TODA a
+   área de portas (ySaida em FluxoPage.tsx), acaba com sua metade vazia sobrepondo fisicamente
+   as linhas de entrada do meio (num nó de 4 entradas, cobre a metade inferior da 2ª e a metade
+   superior da 3ª). `pointer-events: none` aqui remove a linha inteira da disputa de hover/clique
+   — só o `.fluxo-porta-alvo` de verdade (ícone+rótulo) below volta a capturar ponteiro via
+   `pointer-events: auto`, então uma linha sem conteúdo naquele trecho nunca mais rouba o alvo de
+   uma linha vizinha por trás dela. Bug real encontrado pelo usuário (2026-08-30): hover em
+   "Estratégia"/"Consultas" de um Extrator perdia o destaque antes do fim do nome. */
+.fluxo-porta-linha {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  pointer-events: none;
+}
+.fluxo-porta-linha--entrada { justify-content: flex-start; }
+.fluxo-porta-linha--saida { justify-content: flex-end; }
+
+/* Alvo real do clique/drop — ícone + rótulo inteiros, bem maior que só o círculo (pedido
+   explícito: a área sensível pra puxar/soltar uma conexão era pequena demais). Padding só do
+   lado "de fora" (afastando do ícone em direção ao miolo do nó) — do lado do ícone fica 0 de
+   propósito, pra não empurrar o círculo pra fora da posição que a matemática das linhas SVG
+   assume (EDGE_GAP em FluxoPage.tsx). */
+.fluxo-porta-alvo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: var(--radius-sm);
+  cursor: crosshair;
+  pointer-events: auto;
+}
+.fluxo-porta-linha--entrada .fluxo-porta-alvo { padding: 5px 10px 5px 0; }
+.fluxo-porta-linha--saida .fluxo-porta-alvo { padding: 5px 0 5px 10px; }
+.fluxo-porta-alvo:hover { background: color-mix(in srgb, var(--color-accent) 12%, transparent); }
+
+.fluxo-porta {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-bg);
+  border: 1.5px solid var(--color-accent);
+  color: var(--color-accent-700);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fluxo-porta--conectada {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+}
+/* Conflito de fonte alternativa (princípio 2) — duas portas do mesmo altGrupo conectadas ao
+   mesmo tempo (ex.: Consulta SQL E Instrução SQL ligadas juntas em "Definição de colunas"):
+   ambíguo, sinalizado nas duas, sem impedir a conexão em si. */
+.fluxo-porta--conflito {
+  border-color: var(--color-danger-text);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-danger-border) 35%, transparent);
+}
+.fluxo-porta--conflito.fluxo-porta--conectada {
+  background: var(--color-danger-text);
+  border-color: var(--color-danger-text);
+}
+
+.fluxo-porta-dot {
+  flex: none;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-danger-text);
+  border: 1px solid var(--color-bg);
+}
+/* Espaço sempre reservado — visibility (não display:none) pra não deslocar o ícone da porta
+   conforme a bolinha aparece/some (obrigatoriedade atendida) ou nunca existiu (porta de saída). */
+.fluxo-porta-dot--oculta {
+  visibility: hidden;
+}
+
+.fluxo-porta-label {
+  flex: none;
+  max-width: 92px;
+  font-size: 10px;
+  color: var(--color-neutral-600);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

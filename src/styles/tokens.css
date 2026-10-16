@@ -1,0 +1,70 @@
+/* Industry — tokens de design do app. Fonte: docs/design_handoff_etl_manager/. */
+:root {
+  --color-bg: #f2f2f3;
+  --color-surface: #e9e9ea;
+  --color-text: #1d1f20;
+  --color-accent: #5980a6;
+  --color-accent-2: #728fab;
+  --color-divider: color-mix(in srgb, #1d1f20 16%, transparent);
+
+  --color-neutral-100: #f5f5f8;
+  --color-neutral-200: #e7e7ea;
+  --color-neutral-300: #d4d4d7;
+  --color-neutral-400: #b7b7ba;
+  --color-neutral-500: #98989b;
+  --color-neutral-600: #7a7a7d;
+  --color-neutral-700: #5d5d60;
+  --color-neutral-800: #424244;
+  --color-neutral-900: #2b2b2d;
+
+  --color-accent-100: #eef6ff;
+  --color-accent-200: #dde5ed; /* destaques de seleção (item ativo do sidebar) */
+  --color-accent-300: #b5d9fd;
+  --color-accent-400: #94bce3;
+  --color-accent-500: #749dc4;
+  --color-accent-600: #597ea3;
+  --color-accent-700: #416180;
+  --color-accent-800: #2c455d;
+  --color-accent-900: #1d2d3d;
+
+  /* Fora do ramp de tokens — reservado só para "atenção"/"excluir" (nunca vermelho saturado). */
+  --color-danger-border: #a65959;
+  --color-danger-text: #8c4747;
+  /* Ícone de alerta triangular — só o ícone usa amarelo puro, o texto/fundo da tag segue o
+     tom de "atenção" acima (nunca vermelho/amarelo saturado no texto). */
+  --color-warning-icon: #d9a441;
+
+  /* Só pro Switch (controle liga/desliga) — aqui sim cor cheia e saturada faz sentido, é
+     feedback binário de um controle interativo, não uma tag passiva. */
+  --color-success: #4f9d6e;
+  --color-success-dark: #3a7a52;
+
+  --font-heading: "Poppins", system-ui, sans-serif;
+  --font-body: "Poppins", system-ui, sans-serif;
+  --font-heading-weight: 600;
+  /* Valores técnicos (nomes de instância/conexão, label interna etc.) — era IBM Plex Mono, mas
+     caía pra um monospace do sistema (tipo Courier) quando o Google Font não carregava. Trocado
+     pra Inter (a mesma fonte que a V1 usa nesses campos), que carrega de forma mais confiável.
+     Mantém o nome da variável (--font-mono) porque é isso que já está referenciado no projeto
+     todo — não é mais monoespaçada, mas o propósito (destacar valor técnico) continua o mesmo. */
+  --font-mono: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --space-1: 3.4px;
+  --space-2: 6.8px;
+  --space-3: 10.2px;
+  --space-4: 13.6px;
+  --space-6: 20.4px;
+  --space-8: 27.2px;
+
+  --radius-sm: 10px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+
+  --shadow-sm: 0 1px 2px color-mix(in srgb, #2b2b2d 14%, transparent);
+  --shadow-md: 0 3px 10px color-mix(in srgb, #2b2b2d 16%, transparent);
+  --shadow-lg: 0 12px 32px color-mix(in srgb, #2b2b2d 22%, transparent);
+
+  --width-sidebar: 168px;
+  --width-client-sidebar: 190px;
+  --width-collapsed-rail: 20px;
+}

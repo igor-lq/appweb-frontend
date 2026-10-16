@@ -1,0 +1,19 @@
+/* Seletor de Conexão ao lado do título "Modelo Semântico" — sutil de propósito: sem borda/fundo
+   próprio, só texto em azul (mesma cor de link, var(--color-accent-700)), pra não competir
+   visualmente com o título ao lado. */
+.modelo-semantico-conexao-select {
+  border: none;
+  background: transparent;
+  color: var(--color-accent-700);
+  font-size: 14px;
+  min-height: 0;
+  padding: 2px 4px;
+  cursor: pointer;
+}
+.modelo-semantico-conexao-select:hover {
+  color: var(--color-accent-900);
+}
+.modelo-semantico-conexao-select:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}

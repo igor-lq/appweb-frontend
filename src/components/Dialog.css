@@ -1,0 +1,54 @@
+.dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  padding: var(--space-4);
+  background: color-mix(in srgb, #1d1f20 42%, transparent);
+}
+
+.dialog {
+  width: min(520px, 100%);
+  max-height: 86vh;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 26px 28px;
+  border-radius: var(--radius-lg);
+  background: var(--color-bg);
+  border: 1px solid var(--color-divider);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Modal mais largo — só quando o conteúdo precisa (ex.: editor de SQL em Consultas). */
+.dialog--wide {
+  width: min(760px, 92vw);
+}
+
+.dialog-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 22px;
+  flex: none;
+}
+
+/* Título e ações ficam fixos — só o corpo rola, pra Cancelar/Salvar nunca saírem de vista
+   em formulários longos (Tasks, por exemplo). */
+.dialog-body {
+  display: grid;
+  gap: 16px;
+  margin-top: 18px;
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+
+.dialog-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 24px;
+  flex: none;
+}

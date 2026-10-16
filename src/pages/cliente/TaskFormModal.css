@@ -1,0 +1,34 @@
+/* Formulário de Task Padrão — um pouco mais largo que o modal padrão (760px) pra caber as
+   linhas de 3 colunas sem apertar. */
+.task-form-dialog {
+  width: min(880px, 94vw);
+}
+
+/* Título de cada campo em destaque (negrito + azul) — só neste formulário, não é mudança
+   global de `.field > label` (usada em vários outros modais). */
+.task-form-dialog .field > label {
+  font-weight: 700;
+  color: var(--color-accent-700);
+}
+
+/* Largura fixa do campo "Tipo" — igual em todos os tipos de Task, pra não pular de tamanho
+   (26% da linha de Consulta SQL, medido: ~207px) quando o analista troca de tipo. */
+.task-form-campo-tipo {
+  width: 207px;
+  flex: none;
+}
+
+.task-form-row {
+  display: grid;
+  gap: 12px;
+}
+
+/* Consulta SQL vinculada / Estratégia dividem o que sobra depois do Tipo (largura fixa acima). */
+.task-form-row--consulta {
+  grid-template-columns: auto 37fr 37fr;
+}
+
+/* Linhas de duas colunas iguais (Conexão Origem/Destino, Conexão Origem/Aba). */
+.task-form-row--2col {
+  grid-template-columns: 1fr 1fr;
+}

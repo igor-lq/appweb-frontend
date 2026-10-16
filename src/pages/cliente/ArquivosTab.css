@@ -1,0 +1,91 @@
+.arquivos-page {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.arquivos-header {
+  padding: 22px 28px 18px;
+  border-bottom: 1px solid var(--color-divider);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.arquivos-title {
+  font-family: var(--font-heading);
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.arquivos-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.arquivos-sync-msg {
+  font-size: 12.5px;
+}
+
+.arquivos-body {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.arquivos-arvore {
+  flex: 0 1 340px;
+  min-width: 260px;
+  overflow: auto;
+  padding: 14px 8px;
+  border-right: 1px solid var(--color-divider);
+}
+
+.arquivos-linha {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  cursor: pointer;
+  color: var(--color-neutral-700);
+}
+.arquivos-linha:hover { background: var(--color-accent-100); }
+.arquivos-linha--selecionada { background: var(--color-accent-200); color: var(--color-accent-900); }
+
+.arquivos-linha-spacer {
+  width: 13px;
+  flex: none;
+}
+
+.arquivos-linha-nome {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.arquivos-conteudo {
+  flex: 1;
+  min-width: 0;
+  overflow: auto;
+  padding: 20px 28px;
+  background: var(--color-neutral-100);
+}
+
+.arquivos-pre {
+  margin: 12px 0 0;
+  padding: 16px;
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}

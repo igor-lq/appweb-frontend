@@ -1,0 +1,99 @@
+.searchable-select {
+  position: relative;
+  /* flex:1 é no-op fora de um container flex — deixa o componente se comportar como o <select>
+     nativo que substitui em qualquer contexto (dentro de .field ou de uma linha flex). */
+  flex: 1;
+  min-width: 0;
+}
+
+.searchable-select-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  cursor: pointer;
+  text-align: left;
+  color: var(--color-text);
+}
+
+.searchable-select-trigger svg {
+  flex: none;
+  color: var(--color-neutral-600);
+}
+
+.searchable-select-valor {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.searchable-select-painel {
+  /* `position`/`top`/`left`/`width` vêm inline (JS) — o painel é portado pra `document.body`
+     (ver SearchableSelect.tsx) e precisa de coordenadas absolutas de viewport, não relativas a
+     um ancestral qualquer. z-index alto pra ficar acima de qualquer Dialog (`z-index: 40`). */
+  z-index: 50;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.searchable-select-busca {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-sm);
+  color: var(--color-neutral-600);
+  flex: none;
+}
+.searchable-select-busca input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font: inherit;
+  font-size: 13px;
+  flex: 1;
+  min-width: 0;
+  color: var(--color-text);
+}
+
+.searchable-select-lista {
+  max-height: 220px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.searchable-select-opcao {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 7px 8px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-sm);
+  font: inherit;
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+  color: var(--color-text);
+}
+.searchable-select-opcao:hover { background: var(--color-accent-100); }
+.searchable-select-opcao--selecionada { background: var(--color-accent-100); font-weight: 600; color: var(--color-accent-800); }
+
+.searchable-select-opcao-desc {
+  font-size: 11.5px;
+  flex: none;
+}
+
+.searchable-select-vazio {
+  font-size: 12.5px;
+  padding: 8px;
+  text-align: center;
+}

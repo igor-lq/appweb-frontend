@@ -1,0 +1,45 @@
+.json-tree {
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  padding: 8px 10px;
+  max-height: 220px;
+  overflow: auto;
+  font-size: 13px;
+}
+
+.json-tree-grupo-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 2px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.json-tree-chevron {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: inherit;
+  cursor: pointer;
+}
+
+.json-tree-grupo-header input,
+.json-tree-folha input {
+  accent-color: var(--color-accent);
+}
+
+.json-tree-filhos {
+  padding-left: 18px;
+}
+
+.json-tree-folha {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 2px;
+  cursor: pointer;
+}

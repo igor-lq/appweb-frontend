@@ -1,0 +1,139 @@
+.app-shell {
+  height: 100vh;
+  display: flex;
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+.app-shell-main {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-rail {
+  width: 26px;
+  flex: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+/* Hierarquia entre os dois menus colapsáveis: a aba do menu principal é maior, mais saturada
+   e com mais elevação — lê como "por cima" da aba do menu do cliente, que é menor e mais clara. */
+.sidebar-rail-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 999px 999px 0;
+  transition: background 0.15s ease, box-shadow 0.15s ease, color 0.15s ease, width 0.15s ease;
+}
+
+.sidebar-rail-tab--primary {
+  width: 24px;
+  height: 68px;
+  background: var(--color-accent-700);
+  color: #fff;
+  box-shadow: var(--shadow-md);
+  z-index: 6;
+}
+.sidebar-rail:hover .sidebar-rail-tab--primary {
+  width: 28px;
+  background: var(--color-accent-800);
+  box-shadow: var(--shadow-lg);
+}
+
+.sidebar-rail-tab--secondary {
+  width: 20px;
+  height: 54px;
+  background: var(--color-accent-300);
+  color: var(--color-accent-900);
+  box-shadow: var(--shadow-sm);
+  z-index: 5;
+}
+.sidebar-rail:hover .sidebar-rail-tab--secondary {
+  width: 23px;
+  background: var(--color-accent-400);
+  box-shadow: var(--shadow-md);
+}
+
+.app-sidebar {
+  width: var(--width-sidebar);
+  flex: none;
+  border-right: 1px solid var(--color-divider);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+}
+
+.app-sidebar-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 11px;
+  padding: 2px 14px 26px;
+}
+
+.app-sidebar-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  flex: none;
+}
+
+.app-sidebar-name {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.app-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0 10px;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--color-neutral-700);
+  font-family: var(--font-body);
+  font-size: 14px;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  width: 100%;
+}
+.sidebar-item:hover { background: var(--color-accent-100); }
+.sidebar-item--active {
+  background: var(--color-accent-200);
+  color: var(--color-accent-900);
+  box-shadow: inset 3px 0 0 var(--color-accent-800);
+}
+.sidebar-item--muted { color: var(--color-neutral-600); font-size: 13px; }
+
+.app-sidebar-spacer { flex: 1; }
+
+.app-sidebar-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px 10px 0;
+  margin: 0 10px;
+  border-top: 1px solid var(--color-divider);
+}

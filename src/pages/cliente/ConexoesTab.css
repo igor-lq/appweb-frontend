@@ -1,0 +1,144 @@
+.conexoes-page {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.conexoes-header {
+  padding: 22px 28px 18px;
+  border-bottom: 1px solid var(--color-divider);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.conexoes-title {
+  font-family: var(--font-heading);
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.conexoes-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.conexoes-body {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.conexoes-list {
+  flex: 1;
+  min-width: 300px;
+  overflow: auto;
+  padding: 20px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.conexoes-search {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--color-bg);
+  margin-bottom: 2px;
+}
+
+.conexoes-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 18px;
+  cursor: pointer;
+}
+.conexoes-item:hover { border-color: var(--color-accent); }
+
+.conexoes-item-nome {
+  font-size: 13.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.conexoes-item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.conexoes-item-meta {
+  min-width: 0;
+  font-size: 12.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meta-sep {
+  display: inline-block;
+  margin: 0 7px;
+}
+
+.conexoes-detalhes {
+  flex: 0 1 330px;
+  min-width: 250px;
+  overflow: auto;
+  border-left: 1px solid var(--color-divider);
+  background: var(--color-neutral-100);
+  padding: 20px 20px 24px;
+}
+
+.conexoes-detalhes-nome {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+.conexoes-detalhes-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.conexoes-detalhes-campos {
+  margin-top: 18px;
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+.conexoes-campo {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--color-divider);
+  font-size: 12px;
+}
+.conexoes-campo:last-child { border-bottom: 0; }
+
+.conexoes-campo-valor {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-align: right;
+  word-break: break-all;
+}
+
+.conexoes-detalhes-uso {
+  margin-top: 18px;
+  font-size: 12px;
+  line-height: 1.5;
+}
